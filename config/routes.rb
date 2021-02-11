@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-  root to: "posts#index"
+  devise_for :users
+  get 'dashboard/index'
+  root to: "dashboard#index"
+  resources :users, only: [:edit, :update]
 end
